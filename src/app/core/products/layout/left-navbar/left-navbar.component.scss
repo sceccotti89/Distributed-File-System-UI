@@ -1,0 +1,78 @@
+@import '../../../../../assets/styles/variables.scss';
+@import '../../../../../assets/styles/mixins/animations-mixins.scss';
+
+.left-navbar-container {
+    display: inline-block;
+    position: fixed;
+    height: 100%;
+    width: $left-navbar-with;
+    background-color: $left-navbar-bg;
+
+    @media screen and (max-width: $mq-screen-xs) {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 100%;
+        z-index: $z-index-left-navbar-xs;
+    }
+}
+
+.backdrop {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: $z-index-left-navbar-xs - 1;
+    opacity: 0.5;
+    background-color: black;
+}
+
+.btn-file {
+    margin-top: 5px;
+}
+
+.btn-file:last-child {
+    margin-bottom: 5px;
+}
+
+/* The animation code */
+@keyframes openNavbar {
+    0%   { left: -$mq-screen-xs; }
+    100% { left: 0; }
+}
+
+@keyframes closeNavbar {
+    0%   { left: 0; }
+    100% { left: -$mq-screen-xs; }
+}
+
+// @include keyframes(openNavbar) {
+//     0%   { left: -$mq-screen-xs; }
+//     100% { left: 0; }
+// }
+
+// @include keyframes(closeNavbar) {
+//     0%   { left: -$mq-screen-xs; }
+//     100% { left: 0; }
+// }
+  
+/* The element to apply the animation to. */
+.left-navbar-container.open {
+    @media screen and (max-width: $mq-screen-xs) {
+        @include animation-name(openNavbar);
+        @include animation-duration(0.7s);
+        @include animation-fill-mode(forwards);
+    }
+}
+
+.left-navbar-container.closed {
+    @media screen and (max-width: $mq-screen-xs) {
+        @include animation-name(closeNavbar);
+        @include animation-duration(0.7s);
+        @include animation-fill-mode(forwards);
+    }
+}

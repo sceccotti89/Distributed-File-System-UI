@@ -1,0 +1,6 @@
+<app-create-folder-dialog></app-create-folder-dialog>
+<app-product-uploader></app-product-uploader>
+<div class="container-wrapper">
+    <app-document *ngIf="showDocument"></app-document>
+    <app-products *ngIf="!showDocument"></app-products>
+</div>

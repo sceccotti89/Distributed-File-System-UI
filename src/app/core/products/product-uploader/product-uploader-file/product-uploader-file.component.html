@@ -1,0 +1,12 @@
+<div class="uploader-container">
+    <div class="uploader-progress-bar">
+        <div class="progress" id="progress-id">
+            <div class="progress-bar bg-success" id="progress-bar-id" role="progressbar" [style.width.%]="progress" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100">
+                {{file.name}}
+            </div>
+        </div>
+    </div>
+    <div class="uploader-progress-value">
+        {{progress}}%
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="login-container">
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+    <div class="login-padding"></div>
+    <div class="card" id="login-form">
+        <div class="card-header">
+            Login
+        </div>
+        <div class="card-body">
+            <form #loginForm="ngForm" (ngSubmit)="submitLogin()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control form-control-input" id="username" name="username" [(ngModel)]="username" #usrname="ngModel" required>
+                    <div [hidden]="usrname.valid || (usrname.untouched && usrname.pristine)" class="alert alert-danger">
+                        Username is required
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control form-control-input" id="password" name="password" [(ngModel)]="password" #pwd="ngModel" autocomplete="off" required>
+                    <div [hidden]="pwd.valid || (pwd.untouched && pwd.pristine)" class="alert alert-danger">
+                        Password is required
+                    </div>
+                </div>
+                
+                <div id="footer">
+                    <div class="footer-section">
+                        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
+                    </div>
+                    <div class="footer-section footer-top-margin">
+                        <a href="javascript:void(0)" (click)="navigateTo('reset-password')">Forgotten Password? Click here to reset</a>
+                    </div>
+                    <div class="footer-section footer-top-margin">
+                        <a href="javascript:void(0)" (click)="navigateTo('/registration')">Not registered? Sign up today</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="login-padding"></div>
+</div>

@@ -1,0 +1,6 @@
+<div class="dropdown-menu dropdown-menu-right" [ngClass]="[className, position]"
+     aria-labelledby="dropdownSelectionButton">
+    <a *ngFor="let element of dropdownElements" class="dropdown-item" (click)="elementClicked(element.value)">
+        <i class="icon-option" [ngClass]="element.icon" aria-hidden="true"></i>{{element.value}}
+    </a>
+</div>

@@ -1,0 +1,15 @@
+.dropdown-menu {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.dropdown-item:hover {
+    background-color: lightgray;
+}
+
+.icon-option {
+    margin-right: 10px;
+}

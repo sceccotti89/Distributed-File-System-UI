@@ -1,0 +1,76 @@
+@import '../../../../../assets/styles/variables.scss';
+@import '../../../../../assets/styles/mixins/flexbox-mixins.scss';
+
+.top-navbar {
+    position: fixed;
+    padding-top: 5px;
+    width: 100% - $left-navbar-with;
+    z-index: $z-index-top-navbar;
+    background-color: white;
+
+    @media screen and (max-width: $mq-screen-xs) {
+        width: 100%;
+    }
+}
+
+.glossy {
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 18px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('/assets/images/searchicon.png');
+    background-position: 10px 8px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+}
+
+#breadcrumb-container {
+    overflow: auto;
+    white-space: nowrap;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.breadcrumb-item {
+    display: inline-block;
+}
+
+.breadcumb-item-text {
+    font-size: 20px;
+}
+
+.breadcrumb-item.active > .breadcumb-item-text:hover {
+    cursor: pointer;
+    border-bottom: 2px solid lightgray;
+}
+
+.logout-btn,
+.open-navbar-button {
+    background-color: white;
+    outline: none;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.navbar-container {
+    width: 100%;
+    @include flexbox();
+    @include flex-direction(row);
+}
+
+#open-navbar-button-container {
+    @include flex(0, 1, auto);
+    margin-right: 10px;
+}
+
+#logout-button-container {
+    @include flex(0, 1, auto);
+    margin-left: 10px;
+}
+
+#search-bar {
+    @include flex(1, 1, auto);
+}

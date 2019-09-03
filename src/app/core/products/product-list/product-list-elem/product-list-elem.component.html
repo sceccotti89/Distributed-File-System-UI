@@ -1,0 +1,46 @@
+<div class="row element-container" [ngClass]="{ 'active': isSelected }"
+     (mouseover)="setMouseHover(true)" (mouseout)="setMouseHover(false)">
+    <div class="col-2 col-sm-1 list-body-elem" id="checkbox-elem">
+        <app-checkbox-view [checked]="isSelected"
+                           (checkboxClicked)="elementSelected($event)"
+                           [ngClass]="{ 'mouseHover': mouseHover || selected }">
+        </app-checkbox-view>
+    </div>
+    <div class="col-8 col-sm-4 list-body-elem cursor-pointer" (click)="elementClicked()">
+        <div class="elem-info">
+            <img *ngIf="file.folder" src="../../../../../assets/images/folder-icon.png" alt="Folder icon" style="width: 30px; height: 30px;">
+            <img *ngIf="!file.folder" src="../../../../../assets/images/file-icon.png" alt="File icon" style="width: 40px; height: 40px;">
+            <span class="fileText" *ngIf="!renamingFile" [title]="file.fileName">{{file.fileName}}</span>
+            <input class="fileText" #inputText *ngIf="renamingFile" type="text" id="renameFile" name="renameFile"
+                   (keyup.enter)="sendFileName()" (keyup.escape)="resetRenaming()"
+                   [(ngModel)]="file.fileName" (blur)="sendFileName()">
+        </div>
+    </div>
+    <div class="col d-none d-sm-block list-body-elem cursor-pointer" (click)="elementClicked()">{{file.lastModified}}</div>
+    <div class="col d-none d-sm-block col-sm-2 list-body-elem cursor-pointer" (click)="elementClicked()">{{file.size}}</div>
+    <div class="col-2 col-sm-1 list-body-elem cursor-pointer">
+        <div [hidden]="!(showSelectionButton && !isGlobalSelected)" class="btn-group">
+            <!-- data-offset is a Bootstrap attribute used to move the dropdown menu according to (x, y) coordinates -->
+            <button type="button" class="selection-button dropdown" data-toggle="dropdown" data-offset="1,0">
+                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu dropdown dropdown-menu-right" aria-labelledby="dropdownSelectionButton">
+                <a class="dropdown-item" (click)="downloadFile()">
+                    <i class="fa fa-download icon-option" aria-hidden="true"></i>Download
+                </a>
+                <a class="dropdown-item" (click)="renameFile()">
+                    <i class="fa fa-pencil icon-option" aria-hidden="true"></i>Rename
+                </a>
+                <a class="dropdown-item" (click)="false">
+                    <i class="fa fa-copy icon-option" aria-hidden="true"></i>Copy
+                </a>
+                <a class="dropdown-item" (click)="false">
+                    <i class="fa fa-suitcase icon-option" aria-hidden="true"></i>Move
+                </a>
+                <a class="dropdown-item" (click)="false">
+                    <i class="fa fa-trash icon-option" aria-hidden="true"></i>Delete
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+@import '../../../../assets/styles/variables.scss';
+
+.product-container {
+    margin-top: $margin-top-navbar;
+}
+
+.product-list-container {
+    position: relative;
+    min-height: 400px;
+    top: 50px;
+}
+
+.margin-left-right-0 {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.padding-left-right-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.list-header {
+    border-bottom: 2px solid lightgray;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.list-header-col {
+    padding: 12px;
+}
+
+.layout-body {
+    margin-top: 56px;
+}
+
+app-checkbox-view:not(.mouseHover) {
+    @media screen and (min-width: $mq-screen-lg) {
+        visibility: hidden;
+    }
+}
+
+.list-body-col {
+    padding-left: 0;
+    padding-right: 0;
+    border-bottom: 1px solid lightgray;
+}
+
+#spin-loader {
+    padding-top: 50%;
+    @media screen and (min-width: $mq-screen-sm) {
+        padding-top: 30%;
+    }
+    @media screen and (min-width: $mq-screen-lg) {
+        padding-top: 20%;
+    }
+}

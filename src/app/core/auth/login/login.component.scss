@@ -1,0 +1,59 @@
+@import './../../../../assets/styles/mixins/flexbox-mixins.scss';
+
+.login-container {
+    @include flexbox();
+    @include flex-direction(column);
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+#login-form {
+    @include flex(0, 1, auto);
+    width: 100%;
+    margin: auto;
+    max-width: 550px;
+    box-shadow: 2px 2px 5px 0 rgba(0,0,0,.2);
+}
+
+.login-padding {
+    @include flex(1, 1, auto);
+}
+
+.alert.alert-danger {
+    margin-top: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.form-control-input {
+    border-radius: 10px;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+}
+
+.input-group-addon.smaller-addon {
+    padding: 6px 6px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 10px solid #42A948; /* green */
+}
+  
+.ng-invalid:not(.ng-pristine):not(form)  {
+    border-left: 10px solid #a94442; /* red */
+}
+
+#footer {
+    @include flex(1, 0, 100%);
+}
+
+.footer-section {
+    @include flexbox();
+    @include justify-content(space-around);
+    &.footer-top-margin {
+        margin-top: 8px;
+    }
+}

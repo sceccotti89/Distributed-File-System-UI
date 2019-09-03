@@ -1,0 +1,32 @@
+<div class="row list-header" (mouseover)="setMouseHover(true)" (mouseout)="setMouseHover(false)">
+  <div class="col-2 col-sm-1 list-header-col">
+    <app-checkbox-view (checkboxClicked)="checkboxClicked($event)"
+                       [checked]="boxChecked"
+                       [ngClass]="{ 'mouseHover': mouseHover }">
+    </app-checkbox-view>
+  </div>
+  <div class="col list-header-col">Name</div>
+  <div class="col d-none d-sm-block list-header-col">Last Modified</div>
+  <div class="col d-none d-sm-block col-2 list-header-col">Size</div>
+  <div class="col-2 col-sm-1 list-header-col">
+    <div [hidden]="!(boxChecked || showSelectionButton)" class="btn-group">
+      <!-- data-offset is a Bootstrap attribute used to move the dropdown menu according to (x, y) coordinates -->
+      <button type="button" class="multi-selection-button" data-toggle="dropdown" data-offset="1,0">
+          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+      </button>
+      <div class="dropdown-menu dropdown dropdown-menu-right" aria-labelledby="dropdownSelectionButton">
+          <a class="dropdown-item" (click)="downloadSelectedFiles()">
+              <i class="fa fa-download icon-option" aria-hidden="true"></i>Download
+          </a>
+          <a class="dropdown-item" (click)="false">
+              <i class="fa fa-copy icon-option" aria-hidden="true"></i>Copy
+          </a>
+          <a class="dropdown-item" (click)="false">
+              <i class="fa fa-suitcase icon-option" aria-hidden="true"></i>Move
+          </a>
+          <a class="dropdown-item" (click)="false">
+              <i class="fa fa-trash icon-option" aria-hidden="true"></i>Delete
+          </a>
+      </div>
+  </div>
+</div>

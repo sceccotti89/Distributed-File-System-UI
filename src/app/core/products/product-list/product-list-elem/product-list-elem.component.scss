@@ -1,0 +1,64 @@
+@import '../../../../../assets/styles/variables.scss';
+
+.element-container {
+    margin-left: 0;
+    margin-right: 0;
+    &:hover {
+        background-color: lightgray;
+    }
+    &.active {
+        background-color: #EBF4FD;
+    }
+}
+
+.list-body-elem {
+    padding: 10px 12px;
+    &.cursor-pointer {
+        cursor: pointer;
+    }
+}
+
+.elem-info {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.fileText {
+    margin-left: 10px;
+}
+
+.elem-info > input {
+    width: 78%;
+    border-radius: 6px;
+}
+
+#checkbox-elem {
+    margin-top: 8px;
+}
+
+app-checkbox-view:not(.mouseHover) {
+    @media screen and (min-width: $mq-screen-lg) {
+        visibility: hidden;
+    }
+}
+
+.selection-button {
+    border-radius: 5px;
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.dropdown-item:hover {
+    background-color: lightgray;
+}
+
+.icon-option {
+    margin-right: 10px;
+}

@@ -1,0 +1,36 @@
+<div class="top-navbar">
+    <div class="container navbar-container">
+        <div class="d-block d-sm-none padding-0 nav-elem" id="open-navbar-button-container">
+            <button class="open-navbar-button rounded-circle" (click)="toggleLeftNavbar()">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="padding-0 nav-elem" id="search-bar">
+            <input class="form-control mr-sm-2 glossy" type="search" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="padding-0 nav-elem" id="logout-button-container">
+            <button class="logout-btn rounded-circle dropdown" data-toggle="dropdown">
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu dropdown dropdown-menu-right" aria-labelledby="dropdownSelectionButton">
+                <div>
+                    <!-- TODO qui ci va messa una sezione per i dettagli del profilo (spazio utilizzato rispetto al totale) -->
+                    Stefano Ceccotti
+                </div>
+                <a class="dropdown-item" (click)="false">
+                    <i class="fa fa-download icon-option" aria-hidden="true"></i>Profile
+                </a>
+                <a class="dropdown-item" (click)="logout()">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="breadcrumb-container">
+        <div *ngFor="let path of paths; let idx = index; let last = last" class="breadcrumb-item" [class.active]="!last"
+            (click)="idx < paths.length - 1 && loadFilesFromSubdir(path.path)">
+            <span class="breadcumb-item-text">{{path.fileName}}</span>
+        </div>
+    </div>
+</div>

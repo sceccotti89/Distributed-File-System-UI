@@ -1,0 +1,16 @@
+<div class="backdrop" *ngIf="open" (click)="closeLeftNavbar()"></div>
+<div class="left-navbar-container" [ngClass]="{ 'open': open, 'closed': !open }">
+    <div class="row margin-left-right-0">
+        <div class="col-sm-12 btn-file">
+            <input #fileLoader type="file" (change)="onFilesAdded()" accept=".pdf,.doc,.docx" hidden multiple>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openFileLoaderDialog()" data-target="#product-uploader">Upload file(s)</button>
+        </div>
+        <div class="col-sm-12 btn-file">
+            <input #folderLoader type="file" (change)="onFilesAdded()" hidden webkitdirectory mozdirectory msdirectory odirectory directory multiple>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openFolderLoaderDialog()">Upload folder</button>
+        </div>
+        <div class="col-sm-12 btn-file">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" (click)="createFolderClicked()">New folder</button>
+        </div>
+    </div>
+</div>

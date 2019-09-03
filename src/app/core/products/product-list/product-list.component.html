@@ -1,0 +1,23 @@
+<div class="product-container">
+    <app-product-list-header #listHeader
+        [showSelectionButton]="showMultipleSelectionButton()"
+        [itemsSelected]="getItemsSelected()">
+    </app-product-list-header>
+    <div class="product-list-container">
+        <!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading> -->
+        <div *ngIf="loading" class="d-flex justify-content-center" id="spin-loader">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div *ngIf="!loading">
+            <div *ngFor="let file of files; let index = index" class="col-12 list-body-col">
+                <app-product-list-elem [file]="file"
+                                    [showSelectionButton]="!showMultipleSelectionButton()"
+                                    (selected)="onFileChecked(index, $event)"
+                                    (clicked)="onFileSelected($event)">
+                </app-product-list-elem>
+            </div>
+        </div>
+    </div>
+</div>

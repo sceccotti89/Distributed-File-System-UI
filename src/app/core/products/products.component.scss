@@ -1,0 +1,12 @@
+@import '../../../assets/styles/variables.scss';
+
+.wrapper {
+    display: inline-block;
+    margin-left: 25%;
+    width: 75%;
+
+    @media screen and (max-width: $mq-screen-xs) {
+        margin-left: 0;
+        width: 100%;
+    }
+}

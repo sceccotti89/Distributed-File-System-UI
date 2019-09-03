@@ -1,0 +1,26 @@
+@import '../../../../../assets/styles/mixins/flexbox-mixins.scss';
+
+.uploader-container {
+    @include flexbox();
+    @include flex-direction(row);
+    margin-bottom: 5px;
+}
+
+.uploader-progress-bar {
+    @include flex(0, 0, 90%);
+}
+
+#progress-id {
+    height: 35px;
+}
+
+#progress-bar-id {
+    color: black;
+    font-size: 15px;
+}
+
+.uploader-progress-value {
+    @include flex(0, 0, 10%);
+    margin: auto;
+    text-align: right;
+}
